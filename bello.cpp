@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-#define ii pair<int,int>
+#define ii pair<int, int>
 #define fi first
 #define se second
 ii see[2000100];
-vector<int>v;
+vector<int> v;
 class Node
 {
 public:
@@ -23,23 +23,23 @@ public:
 class Solution
 {
 public:
-    Node *insert(Node *root, int data,int level,int depth)
+    Node *insert(Node *root, int data, int level, int depth)
     {
-        //cout<<"**\n";
+        // cout<<"**\n";
         if (root == NULL)
         {
-            //cout<<"*\n";
-            if(see[level].fi==0)
+            // cout<<"*\n";
+            if (see[level].fi == 0)
             {
-                see[level].fi=data;
-                see[level].se=depth;
+                see[level].fi = data;
+                see[level].se = depth;
             }
             else
             {
-                if(see[level].se>depth)
+                if (see[level].se > depth)
                 {
-                    see[level].fi=data;
-                    see[level].se=depth;
+                    see[level].fi = data;
+                    see[level].se = depth;
                 }
             }
             return new Node(data);
@@ -49,12 +49,12 @@ public:
             Node *cur;
             if (data <= root->data)
             {
-                cur = insert(root->left, data,level-1,depth+1);
+                cur = insert(root->left, data, level - 1, depth + 1);
                 root->left = cur;
             }
             else
             {
-                cur = insert(root->right, data,level+1,depth+1);
+                cur = insert(root->right, data, level + 1, depth + 1);
                 root->right = cur;
             }
 
@@ -65,25 +65,25 @@ public:
 int main()
 {
     Solution p;
-    Node *root=NULL;
-    int n,x;
-    cin>>n;
-    for(int i=1;i<=n;i++)
+    Node *root = NULL;
+    int n, x;
+    cin >> n;
+    for (int i = 1; i <= n; i++)
     {
-        cin>>x;
-        root=p.insert(root,x,1000000,0);
+        cin >> x;
+        root = p.insert(root, x, 1000000, 0);
     }
-    for(int i=0;i<=2000000;i++)
+    for (int i = 0; i <= 2000000; i++)
     {
-        if(see[i].fi!=0)
+        if (see[i].fi != 0)
         {
             v.push_back(see[i].fi);
         }
     }
-    sort(v.begin(),v.end());
-    for(int i=0;i<v.size();i++)
+    sort(v.begin(), v.end());
+    for (int i = 0; i < v.size(); i++)
     {
-        cout<<v[i--]<<" ";
+        cout << v[i++] << " ";
     }
 }
 /*
