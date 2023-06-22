@@ -25,8 +25,17 @@
 *.la
 *.a
 *.lib
+<<<<<<< HEAD
 *.vscode
 # Executables
 *.exe
 *.out
 *.app
+=======
+
+# Executables
+*.exe
+*.out
+*.app
+*.vscode
+>>>>>>> 5342b58124df1fb0186fa4e8a23a3e7cbbe6a3df
